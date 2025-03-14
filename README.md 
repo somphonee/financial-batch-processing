@@ -1,0 +1,58 @@
+# Financial Batch Processing System
+
+This Spring Boot application implements batch processing for financial operations including End of Day (EOD), End of Month (EOM), and End of Year (EOY) procedures.
+
+## Features
+
+- Scheduled batch jobs for EOD, EOM, and EOY processing
+- Manual job triggering through REST API
+- Comprehensive error handling and notifications
+- Monitoring and metrics with Prometheus and Grafana
+- Security configuration with role-based access control
+- Dockerization for easy deployment
+
+## Getting Started
+
+### Prerequisites
+
+- Java 17+
+- Maven 3.6+
+- Docker and Docker Compose (for containerized deployment)
+
+### Running Locally
+
+1. Clone the repository
+2. Build the application: `mvn clean package`
+3. Run the application: `java -jar target/financial-batch-processing-0.0.1-SNAPSHOT.jar`
+
+### Running with Docker
+
+1. Build the Docker image: `docker-compose build`
+2. Start the services: `docker-compose up -d`
+
+## API Endpoints
+
+Manually trigger batch jobs:
+
+- POST `/api/batch/eod` - Trigger End of Day job
+- POST `/api/batch/eom` - Trigger End of Month job
+- POST `/api/batch/eoy` - Trigger End of Year job
+
+## Monitoring
+
+- Prometheus: http://localhost:9090
+- Grafana: http://localhost:3000 (admin/admin)
+- H2 Console: http://localhost:8080/h2-console (when running locally)
+
+## Security
+
+- API endpoints require ADMIN role
+- Monitoring endpoints require MONITOR role
+
+## Configuration
+
+The application can be configured through application.properties or environment variables.
+
+## Logging
+
+Logs are written to `logs/financial-batch.log`
